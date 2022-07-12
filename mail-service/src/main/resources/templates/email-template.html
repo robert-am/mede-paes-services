@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Summa Salud</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        font-size: 48px;
+      }
+    </style>
+  </head>
+  <body>
+    <table align="center" cellspacing="0" width="520" cellpadding="0" style="padding-bottom: 20px">
+      <tbody>
+        <tr>
+          <td>
+            <table cellspacing="0" width="520" cellpadding="0"
+              style="margin-top: 0px; margin-bottom: 0px; margin-left: 20px; margin-right: 20px;">
+              <tbody>
+                <tr width="520">
+                  <td width="520" height="52" style="border-bottom: 1px solid #eaeaea; padding-top: 10px">
+                    <table>
+                      <tbody>
+                        <tr width="520">
+                          <td width="107" id="x_logo">
+                            <img
+                              data-imagetype="External"
+                              src="http://portal.summarte.co/images/logo-wide.png"
+                              alt="Logo Image"
+                              width="107"
+                              height="auto"
+                            />
+                          </td>
+                          <td width="420" style="font-size: 22px; text-align: right;
+                              padding-left: 0px;
+                              padding-bottom: 10px;
+                              padding-right: 0px;
+                              padding-top: 2px;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                            "
+                          >
+                            <p>Consulta M&eacute;dica</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colspan="2"
+                    align="left"
+                    style="
+                      text-align: left;
+                      font-size: 17px;
+                      font-family: 'Amazon Ember', Arial, sans-serif;
+                      padding-top: 15px;
+                      padding-bottom: 0px;
+                      padding-left: 0px;
+                      padding-right: 1px;
+                    "
+                  >
+                  <p th:text="${name}"></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td
+                    colspan="2"
+                    align="left"
+                    style="
+                      text-align: left;
+                      font-size: 17px;
+                      font-family: 'Amazon Ember', Arial, sans-serif;
+                      padding-top: 15px;
+                      padding-bottom: 10px;
+                      padding-left: 0px;
+                      padding-right: 1px;
+                    "
+                  >
+                    <p th:text="${'Recuerda tu cita de: ' + tipo_consulta}"></p>
+                  </td>
+                </tr>
+                <tr>
+                  <td align="left">
+                    <table
+                      align="left"
+                      cellspacing="0"
+                      cellpadding="0"
+                      style="font-size: 17px"
+                    >
+                      <tbody>
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-top: 10px;
+                              padding-left: 0px;
+                              padding-right: 5px;
+                            "
+                          >
+                            Fecha:
+                          </td>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-top: 10px;
+                              padding-left: 0px;
+                              padding-right: 1px;
+                            "
+                          >
+                          <p th:text="${fecha_cita}"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-right: 5px;
+                            "
+                          >
+                          Hora de la cita:
+                          </td>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-right: 1px;
+                            "
+                          >
+                          <p th:text="${hora_cita}"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-right: 5px;
+                            "
+                          >
+                          Lugar de la atención:
+                          </td>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-bottom: 10px;
+                              padding-right: 1px;
+                            "
+                          >
+                          <p th:text="${lugar_cita}"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-right: 5px;
+                            "
+                          >
+                          Profesional:
+                          </td>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-bottom: 10px;
+                              padding-right: 1px;
+                            "
+                          >
+                          <p th:text="${profesional}"></p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-right: 5px;
+                            "
+                          >
+                          Para iniciar su video consulta haga click en el sigueinte enlace 5 minutos antes de la hora de su consulta:
+                          </td>
+                          <td
+                            style="
+                              vertical-align: top;
+                              font-family: 'Amazon Ember', Arial, sans-serif;
+                              text-align: left;
+                              padding-left: 0px;
+                              padding-bottom: 10px;
+                              padding-right: 1px;
+                            "
+                          >
+                          <a th:href="${link}">
+                           Iniciar su teleconsulta
+                          </a>
+                          </td>
+                        </tr>
+                        
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

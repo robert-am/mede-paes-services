@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.signusstudio</groupId>
+    <artifactId>encuestas</artifactId>
+    <version>1</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>config-server</module>
+        <module>eureka-server</module>
+        <module>mail-service</module>
+        <module>oauth-service</module>
+        <module>user-commons</module>
+        <module>user-service</module>
+        <module>zuul-server</module>
+    </modules>
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+</project>

@@ -57,7 +57,7 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>com.base16.summarte.commons.user</groupId>
+            <groupId>com.signusstudio.survey.commons.user</groupId>
             <artifactId>user-commons</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>

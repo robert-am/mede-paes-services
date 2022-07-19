@@ -1,6 +1,6 @@
-package com.signusstudio.survey.app.mail.controllers;
+package com.signusstudio.survey.app.survey.controllers;
 
-import com.signusstudio.survey.app.mail.models.entity.MailMessage;
+import com.signusstudio.survey.app.survey.models.entity.MailMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

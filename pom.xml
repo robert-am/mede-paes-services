@@ -10,6 +10,7 @@
         <module>config-server</module>
         <module>eureka-server</module>
         <module>mail-service</module>
+        <module>survey-service</module>
         <module>oauth-service</module>
         <module>user-commons</module>
         <module>user-service</module>

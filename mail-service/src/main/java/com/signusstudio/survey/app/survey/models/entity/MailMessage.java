@@ -1,4 +1,4 @@
-package com.signusstudio.survey.app.mail.models.entity;
+package com.signusstudio.survey.app.survey.models.entity;
 
 import lombok.Data;
 

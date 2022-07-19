@@ -1,4 +1,4 @@
-package com.signusstudio.survey.app.mail.config;
+package com.signusstudio.survey.app.survey.config;
 
 import java.nio.charset.StandardCharsets;
 

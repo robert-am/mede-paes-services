@@ -29,18 +29,18 @@ public class SurveyController {
 
     private final Logger log = LoggerFactory.getLogger(SurveyController.class);
 
+    @Autowired
+    MongoClient mongoClient;
+
     @PostMapping("/")
     public String saveSurvey(@RequestBody Document document) throws IOException {
         InsertOneResult result = null;
-        String connectionString = "mongodb+srv://robertam:YkFgyd9K4uW67jc@paes0.hjsi6.mongodb.net/?retryWrites=true&w=majority";
-        try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-            MongoDatabase database = mongoClient.getDatabase("PAES0");
-            MongoCollection<Document> collection = database.getCollection("surveys");
-            try {
-                result = collection.insertOne(document);
-            } catch (MongoException me) {
-                System.err.println("Unable to insert due to an error: " + me);
-            }
+        MongoDatabase database = this.mongoClient.getDatabase("PAES0");
+        MongoCollection<Document> collection = database.getCollection("surveys");
+        try {
+            result = collection.insertOne(document);
+        } catch (MongoException me) {
+            System.err.println("Unable to insert due to an error: " + me);
         }
         return result.toString();
     }
@@ -48,18 +48,15 @@ public class SurveyController {
     @GetMapping("/")
     public Document getSurvery() {
         Document doc = null;
-        String connectionString = "mongodb+srv://robertam:YkFgyd9K4uW67jc@paes0.hjsi6.mongodb.net/?retryWrites=true&w=majority";
-        try (MongoClient mongoClient = MongoClients.create(connectionString)) {
-            MongoDatabase database = mongoClient.getDatabase("PAES0");
-            MongoCollection<Document> collection = database.getCollection("surveys");
-            try {
-                doc = collection.find(Filters.eq("questions.dato1", "example")).first();
-                if (doc != null) {
-                   return doc;
-                }
-            } catch (MongoException me) {
-                System.err.println("Unable to insert due to an error: " + me);
+        MongoDatabase database = this.mongoClient.getDatabase("PAES0");
+        MongoCollection<Document> collection = database.getCollection("surveys");
+        try {
+            doc = collection.find(Filters.eq("questions.dato1", "example")).first();
+            if (doc != null) {
+                return doc;
             }
+        } catch (MongoException me) {
+            System.err.println("Unable to insert due to an error: " + me);
         }
         return doc;
     }

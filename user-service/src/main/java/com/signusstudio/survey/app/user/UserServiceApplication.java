@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@EntityScan({"com.base16.summarte.commons.user.models.entity"})
+@EntityScan({"com.signusstudio.survey.commons.user.models.entity"})
 @SpringBootApplication
 public class UserServiceApplication {
 

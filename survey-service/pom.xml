@@ -11,7 +11,7 @@
     <groupId>com.signusstudio.survey.app.survey</groupId>
     <artifactId>survey-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mail-service</name>
+    <name>survey-service</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>

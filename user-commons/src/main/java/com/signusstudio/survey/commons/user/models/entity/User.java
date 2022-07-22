@@ -19,14 +19,21 @@ public class User implements Serializable {
     private String username;
     @Column(length = 60)
     private String password;
-    private Boolean enable;
+    private Boolean status;
+    private String document;
+    private String jobTitle;
     private String firstName;
     private String lastName;
+    private String cellPhone;
     private String type;
     @Column(unique = true, length = 100)
-    private String email;
+    private String personalEmail;
+    private String corporateEmail;
+    private String approval;
+    private String esanUser;
     private Integer retries;
     private String signature;
+    private String agentCode;
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id"),

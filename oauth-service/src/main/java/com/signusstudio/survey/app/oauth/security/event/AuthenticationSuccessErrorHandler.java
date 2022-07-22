@@ -58,11 +58,11 @@ public class AuthenticationSuccessErrorHandler implements AuthenticationEventPub
 
             log.info("Intentos despues de: " + user.getRetries());
             errors.append("Intentos despues de: " + user.getRetries());
-            if (user.getRetries() >= 3) {
+            if (user.getRetries() >= 10) {
                 String errorMaxRetries = String.format("El usuario %s ha sido deshabilitado por la cantidad de intentos", authentication.getName());
                 log.error(String.format("El usuario %s ha sido deshabilitado por la cantidad de intentos", authentication.getName()));
                 errors.append(" - " + errorMaxRetries);
-                user.setEnable(false);
+                user.setStatus(false);
             }
             userService.update(user, user.getId());
             tracer.currentSpan().tag("error.message", errors.toString());

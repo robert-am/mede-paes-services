@@ -25,8 +25,9 @@ public class CustomInfoToken implements TokenEnhancer {
         info.put("id", user.getId());
         info.put("name", user.getFirstName());
         info.put("lastname", user.getLastName());
-        info.put("email", user.getEmail());
+        info.put("email", user.getCorporateEmail());
         info.put("role", user.getType());
+        info.put("agentId", user.getAgentCode());
         ((DefaultOAuth2AccessToken) oAuth2AccessToken).setAdditionalInformation(info);
         return oAuth2AccessToken;
     }

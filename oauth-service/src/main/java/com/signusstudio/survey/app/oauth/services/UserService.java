@@ -45,7 +45,7 @@ public class UserService implements IUserService, UserDetailsService {
             return new org.springframework.security.core.userdetails.User(
                     user.getUsername(),
                     user.getPassword(),
-                    user.getEnable(),
+                    user.getStatus(),
                     true,
                     true,
                     true,
@@ -72,6 +72,4 @@ public class UserService implements IUserService, UserDetailsService {
     public List<Role> findRolesByUserId(Long id){
         return client.findRolesByUserId(id).getContent().stream().collect(toCollection(ArrayList::new));
     }
-
-
 }

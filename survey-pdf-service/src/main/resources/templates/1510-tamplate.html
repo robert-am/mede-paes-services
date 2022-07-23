@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <title>Orden de Medicamentos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="http://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+      }
+
+      .pacienteInfo tr td {
+      }
+
+      .procedimientos tr td {
+      }
+
+      .signature tr td {
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td>
+          <table>
+            <tbody>
+              <tr width="520">
+                <td width="107" id="x_logo">
+                  <img
+                    data-imagetype="External"
+                    src="http://portal.summarte.co/images/logo-wide.png"
+                    alt="Logo Image"
+                    width="90"
+                    height="auto"
+                  />
+                </td>
+                <td
+                  width="420"
+                  style="
+                    font-size: 16px;
+                    text-align: right;
+                    padding-left: 0px;
+                    padding-bottom: 10px;
+                    padding-right: 0px;
+                    padding-top: 2px;
+                    font-family: 'Amazon Ember', Arial, sans-serif;
+                  "
+                >
+                  <p th:text="|Orden Nro.   ${data.id}|">Orden Nro. </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <br/>
+    <h4 style="text-align: center;">INFORMACIÓN BÁSICA</h4>
+    <table width="100%" class="pacienteInfo" style="border-collapse: collapse;">
+      <tr>
+        <td width="20%">Nombre:</td>
+        <td th:text="|${patient.firstName} ${(patient.middleName == null) ? ' ':patient.middleName} ${patient.fisrtSurname} ${patient.secondSurname}|"></td>
+        <td width="20%">Identificación:</td>
+        <td th:text="${patient.din}"></td>
+      </tr>
+      <tr>
+        <td>Fecha Nac:</td>
+        <td th:text="${patient.birthdate}"></td>
+        <td>Genero:</td>
+        <td>
+          <span th:if="${patient.gender == '1'}">Femenino</span>
+          <span th:unless="${patient.gender == '1'}">Masculino</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Direccion:</td>
+        <td th:text="${patient.address}"></td>
+        <td>Celular:</td>
+        <td th:text="${patient.cellPhone}"></td>
+      </tr>
+    </table>
+    <h4 style="text-align: center;">MEDICAMENTOS</h4>
+    <table width="100%" class="procedimientos" style="border-collapse: collapse;">
+      <tr>
+        <td width="">Codigo</td>
+        <td width="">Nombre</td>
+        <td width="">Total Medicamento</td>
+        <td width="">Observaciones</td>
+      </tr>
+      <tr th:each="item: ${data.physics}">
+        <td th:text="${item.code}"></td>
+        <td th:text="${item.name}"></td>
+        <td th:text="${item.total}"></td>
+        <td th:text="${item.observation}"></td>
+
+      </tr>
+    </table>
+    <br>
+    <table width="100%" class="signature" style="border-collapse: collapse;">
+      <tr>
+        <td width="20%">Firma Profesional</td>
+        <td width="50%"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+  </body>
+</html>

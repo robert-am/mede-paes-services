@@ -10,6 +10,7 @@
         <module name="zuul-server" />
         <module name="config-server" />
         <module name="survey-service" />
+        <module name="physic-composite-service" />
         <module name="user-service" />
         <module name="user-commons" />
         <module name="eureka-server" />
@@ -24,6 +25,7 @@
       <module name="eureka-server" options="-parameters" />
       <module name="mail-service" options="-parameters" />
       <module name="oauth-service" options="-parameters" />
+      <module name="physic-composite-service" options="-parameters" />
       <module name="survey-service" options="-parameters" />
       <module name="user-commons" options="-parameters" />
       <module name="user-service" options="-parameters" />

@@ -1,8 +1,5 @@
 package com.signusstudio.survey.app.services;
 
-import com.signusstudio.survey.app.client.OrderPhysicFeingClient;
-import com.signusstudio.survey.app.models.entity.OrderPhysic;
-
 import java.util.List;
 
 import org.slf4j.Logger;

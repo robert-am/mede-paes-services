@@ -1,8 +1,6 @@
 package com.signusstudio.survey.app.controller;
 
 import com.signusstudio.survey.app.models.entity.History;
-import com.signusstudio.survey.app.models.entity.OrderPhysic;
-import com.signusstudio.survey.app.models.entity.Paciente;
 import com.signusstudio.survey.app.services.IHistoryService;
 import com.signusstudio.survey.app.services.IOrderPhysicService;
 import com.signusstudio.survey.app.services.IPacienteService;
@@ -36,26 +34,11 @@ public class PhysicController {
     @Autowired
     private IOrderPhysicService orderPhysicService;
 
-    @GetMapping("/")
-    public List<OrderPhysic> list() {
-        List<OrderPhysic> ordenes = orderPhysicService.list();
-        for (OrderPhysic orderPhysic : ordenes) {
-            Paciente paciente = pacienteService.findPacienteById(orderPhysic.getPatient());
-            orderPhysic.setPaciente(paciente);
-        }
-        return ordenes;
-    }
-
     @GetMapping("/{id}")
     public ResponseEntity<?> getPDF(@PathVariable(value = "id") String id) {
         final Context ctx = new Context();
-
-        OrderPhysic order = orderPhysicService.findOrderById(Long.valueOf(id));
-        History history = historyService.findHistoryById(order.getHistory());
-        Paciente paciente = pacienteService.findPacienteById(history.getPatientId());
-
-        ctx.setVariable("data", order);
-        ctx.setVariable("patient", paciente);
+        //History history = historyService.findHistoryById(order.getHistory());
+        ctx.setVariable("data", "history");
         String html = templateEngine.process("physic-tamplate", ctx);
         ByteArrayOutputStream target = new ByteArrayOutputStream();
         HtmlConverter.convertToPdf(html, target);

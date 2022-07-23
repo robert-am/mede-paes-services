@@ -8,10 +8,10 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableFeignClients
 @EnableEurekaClient
 @SpringBootApplication
-public class PhysicCompositeServiceApplication {
+public class SurveyCompositeServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PhysicCompositeServiceApplication.class, args);
+		SpringApplication.run(SurveyCompositeServiceApplication.class, args);
 	}
 
 }

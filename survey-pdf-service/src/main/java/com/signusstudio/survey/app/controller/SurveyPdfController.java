@@ -33,7 +33,7 @@ public class SurveyPdfController {
         final Context ctx = new Context();
         //History history = historyService.findHistoryById(order.getHistory());
         ctx.setVariable("data", "history");
-        String html = templateEngine.process("1653-template", ctx);
+        String html = templateEngine.process("1654-template", ctx);
         ByteArrayOutputStream target = new ByteArrayOutputStream();
         ConverterProperties properties = new ConverterProperties();
 

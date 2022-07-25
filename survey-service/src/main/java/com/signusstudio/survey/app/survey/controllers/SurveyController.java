@@ -37,14 +37,14 @@ public class SurveyController {
         return result.toString();
     }
 
-    @GetMapping("/{code}/user/{userid}")
-    public List<Document> getSurveryByCodeAndUser( @PathVariable(value = "code") String code, @PathVariable(value = "user") String userid ) {
+    @GetMapping("/survey-user/{surveyCode}/{userid}")
+    public List<Document> getSurveryByCodeAndUser( @PathVariable(value = "surveyCode") String surveyCode, @PathVariable(value = "userid") String userid ) {
         List<Document> docs = new ArrayList<>();
         FindIterable<Document> iterDoc = null;
         MongoDatabase database = this.mongoClient.getDatabase("surveys");
         MongoCollection<Document> collection = database.getCollection("paes");
         try {
-            Bson comparation = and( eq("code", code), eq("createdBy", userid));
+            Bson comparation = and( eq("surveyCode", surveyCode), eq("createdBy", userid));
             iterDoc = collection.find(comparation);
             Iterator it = iterDoc.iterator();
             while (it.hasNext()){
@@ -55,7 +55,7 @@ public class SurveyController {
         }
         return docs;
     }
-    @GetMapping("/{code}")
+    @GetMapping("/{surveyCode}")
     public List<Document> getSurverys(@PathVariable(value = "surveyCode") String surveyCode) {
         List<Document> docs = new ArrayList<>();
         FindIterable<Document> iterDoc = null;

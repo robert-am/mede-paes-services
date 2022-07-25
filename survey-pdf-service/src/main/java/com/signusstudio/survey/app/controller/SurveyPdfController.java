@@ -28,12 +28,12 @@ public class SurveyPdfController {
     private IHistoryService historyService;
 
      */
-    @GetMapping("/{id}")
-    public ResponseEntity<?> getPDF(@PathVariable(value = "id") String id) {
+    @GetMapping("/{surveyCode}/{id}")
+    public ResponseEntity<?> getPDF(@PathVariable(value = "id") String id, @PathVariable(value = "surveyCode") String surveyCode ){
         final Context ctx = new Context();
         //History history = historyService.findHistoryById(order.getHistory());
         ctx.setVariable("data", "history");
-        String html = templateEngine.process("1654-template", ctx);
+        String html = templateEngine.process(surveyCode+ "-template", ctx);
         ByteArrayOutputStream target = new ByteArrayOutputStream();
         ConverterProperties properties = new ConverterProperties();
 

@@ -13,11 +13,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class HistoryService implements IHistoryService {
     private Logger log  = LoggerFactory.getLogger(HistoryService.class);
-    
-
     @Autowired
     HistoryFeingClient client;
-
     @Override
     public History findHistoryById(Long id) {
             return client.findById(id);

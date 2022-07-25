@@ -2,13 +2,11 @@ package com.signusstudio.survey.app.survey.controllers;
 
 
 import com.mongodb.MongoException;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.model.Filters;
+import com.mongodb.client.*;
+import static com.mongodb.client.model.Filters.*;
 import com.mongodb.client.result.InsertOneResult;
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.print.Doc;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 @RestController
 public class SurveyController {
@@ -42,28 +37,49 @@ public class SurveyController {
         return result.toString();
     }
 
-    @GetMapping("/name/{name}")
-    public Document getSurveryByName( @PathVariable(value = "name") String name ) {
-        Document docs = null;
+    @GetMapping("/{code}/user/{userid}")
+    public List<Document> getSurveryByCodeAndUser( @PathVariable(value = "code") String code, @PathVariable(value = "user") String userid ) {
+        List<Document> docs = new ArrayList<>();
+        FindIterable<Document> iterDoc = null;
         MongoDatabase database = this.mongoClient.getDatabase("surveys");
         MongoCollection<Document> collection = database.getCollection("paes");
         try {
-            docs = collection.find( Filters.eq("name", name)).first();
-            if (docs != null) {
-                return docs;
+            Bson comparation = and( eq("code", code), eq("createdBy", userid));
+            iterDoc = collection.find(comparation);
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()){
+                docs.add((Document) it.next());
             }
         } catch (MongoException me) {
             System.err.println("Unable to insert due to an error: " + me);
         }
         return docs;
     }
-    @GetMapping("/{id}")
-    public Document getSurveryById(@PathVariable(value ="id") String id ) {
+    @GetMapping("/{code}")
+    public List<Document> getSurverys(@PathVariable(value = "surveyCode") String surveyCode) {
+        List<Document> docs = new ArrayList<>();
+        FindIterable<Document> iterDoc = null;
+        MongoDatabase database = this.mongoClient.getDatabase("surveys");
+        MongoCollection<Document> collection = database.getCollection("paes");
+        try {
+            iterDoc = collection.find(eq("surveyCode", surveyCode));
+            Iterator it = iterDoc.iterator();
+            while (it.hasNext()){
+                docs.add((Document) it.next());
+            }
+        } catch (MongoException me) {
+            System.err.println("Unable to insert due to an error: " + me);
+        }
+        return docs;
+    }
+
+    @GetMapping("/role/{role}")
+    public Document getSurveryByRole(@PathVariable(value ="role") String role ) {
         Document doc = null;
         MongoDatabase database = this.mongoClient.getDatabase("surveys");
         MongoCollection<Document> collection = database.getCollection("paes");
         try {
-            doc = collection.find(Filters.eq("id", id)).first();
+            doc = collection.find(eq("id", role)).first();
             if (doc != null) {
                 return doc;
             }
@@ -72,4 +88,5 @@ public class SurveyController {
         }
         return doc;
     }
-}
+
+    }

@@ -8,7 +8,7 @@
 		<version>2.3.12.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.signusstudio.survey</groupId>
+	<groupId>com.signusstudio.survey.app</groupId>
 	<artifactId>survey-pdf-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>survey-pdf-service</name>
@@ -81,7 +81,6 @@
             <version>3.0.1</version>
         </dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
